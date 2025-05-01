@@ -57,3 +57,12 @@ except Exception as e:
 
 
 # st.write(df) # This line can be removed or commented out if not needed
+
+# prompt: arma una grafica de las ventas por region del dataframe df usando streamlit
+
+# Assuming 'Region' and 'Ventas' columns exist in your dataframe
+if 'Region' not in df.columns or 'Sales' not in df.columns:
+    st.error("Error: 'Region' or 'Sales' columns not found in the DataFrame.")
+else:
+    fig = px.bar(df, x='Region', y='Sales', title='Ventas por Región')
+    st.plotly_chart(fig)
